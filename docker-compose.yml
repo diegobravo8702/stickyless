@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  coder:
+    container_name: coder
+    build: .
+    env_file:
+        - .coder.env
+    tty: true
