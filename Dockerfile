@@ -21,6 +21,7 @@ RUN apt-get -y update && apt-get -y install  --no-install-recommends \
 RUN sh -c "$(wget --no-check-certificate -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.1/zsh-in-docker.sh)"
 
 #RUN mkdir /code && chown node:node /code
+RUN mkdir /code
 # copy in our source code last, as it changes the most
 WORKDIR /code
-COPY . /code
+#COPY . /code/
