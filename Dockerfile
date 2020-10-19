@@ -24,4 +24,4 @@ RUN sh -c "$(wget --no-check-certificate -O- https://github.com/deluan/zsh-in-do
 RUN mkdir /code
 # copy in our source code last, as it changes the most
 WORKDIR /code
-#COPY . /code/
+COPY ./config /config/
