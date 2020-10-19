@@ -7,5 +7,6 @@ services:
     env_file:
       - .coder.env
     volumes: 
-      - ./code:/code 
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./code:/code
     tty: true
