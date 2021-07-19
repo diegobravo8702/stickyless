@@ -3,8 +3,6 @@ FROM ubuntu:18.04
 
 RUN printenv
 
-ENV NODE_ENV=${NODE_ENV}
-ENV NODE_VERSION=12.19.0
 
 RUN apt-get update && apt-get -y install --no-install-recommends \
 	curl \
@@ -16,12 +14,14 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
 	gnupg \
 	apt-transport-https \
 	ca-certificates \
+	python3-pip \
 	software-properties-common \
 	&& curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
 	&& add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" \
 	&& apt-get update \
 	&& apt-cache policy docker-ce \
 	&& apt-get install -y docker-ce \
+
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/man/?? /usr/share/man/??_*
 
@@ -29,15 +29,9 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
 RUN curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 RUN chmod +x /usr/local/bin/docker-compose
 
-# nodejs
-RUN echo $NODE_VERSION
-RUN echo ${NODE_VERSION}
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-ENV NVM_DIR=/root/.nvm
-RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
-RUN . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION}
-RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
-ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
+# python
+#RUN apt install python3-dev pip3
+	
 
 
 # Default powerline10k theme, no plugins installed
