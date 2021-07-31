@@ -33,6 +33,8 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
 	vim \
 	net-tools \
 	dirmngr \
+	build-essential \
+	manpages-dev \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/man/?? /usr/share/man/??_*
 
@@ -41,13 +43,7 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
 # REQUIERE wget
 RUN sh -c "$(wget --no-check-certificate -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.1/zsh-in-docker.sh)"
 
-# C++
-# Install the Clang compiler
-# https://devblogs.microsoft.com/cppblog/c-development-with-docker-containers-in-visual-studio-code/
-RUN apt-get update && apt-get -y install --no-install-recommends \
-	clang \
-	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/man/?? /usr/share/man/??_*
+
 
 RUN printenv
 
