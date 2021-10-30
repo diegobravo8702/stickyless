@@ -1,0 +1,33 @@
+{
+    "name": "devcontainer",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "coder",
+    "workspaceFolder": "/code",
+    "shutdownAction": "stopCompose",
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/zsh",
+      "editor.fontSize": 14,
+      "editor.formatOnSave": true,
+      "workbench.colorTheme": "Andromeda",
+      "workbench.iconTheme": "material-icon-theme"
+    },
+    "extensions": [
+      "dongido.sync-env",
+      "donjayamanne.githistory",
+      "Dunn.redis",
+      "eamodio.gitlens",
+      "hediet.vscode-drawio",
+      "letmaik.git-tree-compare",
+      "mhutchie.git-graph",
+      "mikestead.dotenv",
+      "ms-azuretools.vscode-docker",
+      "ms-vscode-remote.remote-containers",
+      "naumovs.color-highlight",
+      "peacefixation.asterisksyntaxhighlighter",
+      "shd101wyy.markdown-preview-enhanced",
+      "EliverLara.andromeda",
+      "PKief.material-icon-theme",
+      "yzhang.markdown-all-in-one",
+    ]
+  }
+© 2021 GitHub, Inc.
