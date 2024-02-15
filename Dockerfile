@@ -4,7 +4,7 @@ FROM ubuntu:18.04
 RUN printenv
 
 ENV NODE_ENV=${NODE_ENV}
-ENV NODE_VERSION=12.19.0
+ENV NODE_VERSION=12.22.12
 
 RUN apt-get update && apt-get -y install --no-install-recommends \
 	curl \
@@ -47,4 +47,8 @@ RUN sh -c "$(wget --no-check-certificate -O- https://github.com/deluan/zsh-in-do
 RUN mkdir /code
 # copy in our source code last, as it changes the most
 WORKDIR /code
+
+# PORT FOR ANGULAR APP 
+EXPOSE 4200
+
 COPY ./config /config/
